@@ -1,0 +1,4455 @@
+#%RAML 1.0
+title: Online Banking REST API
+version: V1
+baseUri: http://application.apisec.ai:8080/
+baseUriParameters: {}
+protocols:
+- HTTP
+documentation:
+- title: Online Banking REST API
+  content: Public API.
+types:
+  BankAccount:
+    displayName: BankAccount
+    type: object
+    properties:
+      accountBalance:
+        required: false
+        displayName: accountBalance
+        type: integer
+        format: int64
+      accountNumber:
+        required: false
+        displayName: accountNumber
+        type: integer
+        format: int64
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      user:
+        required: false
+        displayName: user
+        type: NameDto
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Branch:
+    displayName: Branch
+    type: object
+    properties:
+      access:
+        required: false
+        displayName: access
+        type: string
+      atmAtBranch:
+        required: false
+        displayName: atmAtBranch
+        type: string
+      branchMediatedServiceName:
+        required: false
+        displayName: branchMediatedServiceName
+        type: string
+      branchName:
+        required: false
+        displayName: branchName
+        type: string
+      branchType:
+        required: false
+        displayName: branchType
+        type: string
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      customerSegment:
+        required: false
+        displayName: customerSegment
+        type: string
+      faxNumber:
+        required: false
+        displayName: faxNumber
+        type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Issue:
+    displayName: Issue
+    type: object
+    properties:
+      assertions:
+        required: false
+        displayName: assertions
+        type: string
+      assignedTo:
+        required: false
+        displayName: assignedTo
+        type: string
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      description:
+        required: false
+        displayName: description
+        type: string
+      endpoint:
+        required: false
+        displayName: endpoint
+        type: string
+      env:
+        required: false
+        displayName: env
+        type: string
+      failedAssertions:
+        required: false
+        displayName: failedAssertions
+        type: string
+      headers:
+        required: false
+        displayName: headers
+        type: array
+        items:
+          type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      issueName:
+        required: false
+        displayName: issueName
+        type: string
+      issueStatus:
+        required: false
+        displayName: issueStatus
+        type: string
+        enum:
+        - OPEN
+        - CLOSED
+      issueType:
+        required: false
+        displayName: issueType
+        type: string
+        enum:
+        - MANUAL
+        - AUTOMATIC
+      method:
+        required: false
+        displayName: method
+        type: string
+        enum:
+        - GET
+        - HEAD
+        - POST
+        - PUT
+        - PATCH
+        - DELETE
+        - OPTIONS
+        - TRACE
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      project:
+        required: false
+        displayName: project
+        type: Project
+      requestBody:
+        required: false
+        displayName: requestBody
+        type: string
+      responseBody:
+        required: false
+        displayName: responseBody
+        type: string
+      responseHeaders:
+        required: false
+        displayName: responseHeaders
+        type: string
+      result:
+        required: false
+        displayName: result
+        type: string
+      statusCode:
+        required: false
+        displayName: statusCode
+        type: string
+      tags:
+        required: false
+        displayName: tags
+        type: array
+        items:
+          type: string
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Member:
+    displayName: Member
+    type: object
+    properties:
+      confirmPassword:
+        required: false
+        displayName: confirmPassword
+        type: string
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      email:
+        required: false
+        displayName: email
+        type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      name:
+        required: false
+        displayName: name
+        type: string
+      orgId:
+        required: false
+        displayName: orgId
+        type: string
+      orgRole:
+        required: false
+        displayName: orgRole
+        type: string
+        enum:
+        - READ
+        - WRITE
+        - ADMIN
+        - USER
+        - PROJECT_MANAGER
+        - ENTERPRISE_ADMIN
+        - BANK_ACCOUNTANT
+        - BANK_MANAGER
+      password:
+        required: false
+        displayName: password
+        type: string
+      username:
+        required: false
+        displayName: username
+        type: string
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Message:
+    displayName: Message
+    type: object
+    properties:
+      key:
+        required: false
+        displayName: key
+        type: string
+      type:
+        required: false
+        displayName: type
+        type: string
+        enum:
+        - INFO
+        - ERROR
+        - WARNING
+      value:
+        required: false
+        displayName: value
+        type: string
+  NameDto:
+    displayName: NameDto
+    type: object
+    properties:
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      name:
+        required: false
+        displayName: name
+        type: string
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Org:
+    displayName: Org
+    type: object
+    properties:
+      billingEmail:
+        required: false
+        displayName: billingEmail
+        type: string
+      company:
+        required: false
+        displayName: company
+        type: string
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      description:
+        required: false
+        displayName: description
+        type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      location:
+        required: false
+        displayName: location
+        type: string
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      name:
+        required: false
+        displayName: name
+        type: string
+      orgPlan:
+        required: false
+        displayName: orgPlan
+        type: string
+        enum:
+        - FREE
+        - PRO
+        - TEAM
+        - BASIC
+        - BUSINESS
+        - ENTERPRISE
+        - PAY_AS_YOU_GO
+      orgType:
+        required: false
+        displayName: orgType
+        type: string
+        enum:
+        - PERSONAL
+        - TEAM
+        - ENTERPRISE
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  OrgUsers:
+    displayName: OrgUsers
+    type: object
+    properties:
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      org:
+        required: false
+        displayName: org
+        type: NameDto
+      orgRole:
+        required: false
+        displayName: orgRole
+        type: string
+        enum:
+        - READ
+        - WRITE
+        - ADMIN
+        - USER
+        - PROJECT_MANAGER
+        - ENTERPRISE_ADMIN
+        - BANK_ACCOUNTANT
+        - BANK_MANAGER
+      status:
+        required: false
+        displayName: status
+        type: string
+        enum:
+        - INVITED
+        - ACTIVE
+        - INACTIVE
+        - DECLINED
+        - REMOVED
+      users:
+        required: false
+        displayName: users
+        type: UserMinimalDto
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  PrimaryAccount:
+    displayName: PrimaryAccount
+    type: object
+    properties:
+      accountBalance:
+        required: false
+        displayName: accountBalance
+        type: integer
+        format: int64
+      accountNumber:
+        required: false
+        displayName: accountNumber
+        type: integer
+        format: int64
+      accountType:
+        required: false
+        displayName: accountType
+        type: string
+        enum:
+        - SAVING
+        - CURRENT
+        - CREDIT
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  PrimaryTransaction:
+    displayName: PrimaryTransaction
+    type: object
+    properties:
+      amount:
+        required: false
+        displayName: amount
+        type: number
+        format: double
+      availableBalance:
+        required: false
+        displayName: availableBalance
+        type: number
+        format: double
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      description:
+        required: false
+        displayName: description
+        type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      status:
+        required: false
+        displayName: status
+        type: string
+      type:
+        required: false
+        displayName: type
+        type: string
+      user:
+        required: false
+        displayName: user
+        type: NameDto
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Project:
+    displayName: Project
+    type: object
+    properties:
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      description:
+        required: false
+        displayName: description
+        type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      name:
+        required: false
+        displayName: name
+        type: string
+      org:
+        required: false
+        displayName: org
+        type: NameDto
+      refId:
+        required: false
+        displayName: refId
+        type: string
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Recepient:
+    displayName: Recepient
+    type: object
+    properties:
+      accountNumber:
+        required: false
+        displayName: accountNumber
+        type: string
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      description:
+        required: false
+        displayName: description
+        type: string
+      email:
+        required: false
+        displayName: email
+        type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      name:
+        required: false
+        displayName: name
+        type: string
+      phone:
+        required: false
+        displayName: phone
+        type: string
+      user:
+        required: false
+        displayName: user
+        type: NameDto
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Response«BankAccount»:
+    displayName: Response«BankAccount»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: BankAccount
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«Branch»:
+    displayName: Response«Branch»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: Branch
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«Issue»:
+    displayName: Response«Issue»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: Issue
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«BankAccount»»:
+    displayName: Response«List«BankAccount»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: BankAccount
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«Branch»»:
+    displayName: Response«List«Branch»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: Branch
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«Issue»»:
+    displayName: Response«List«Issue»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: Issue
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«OrgUsers»»:
+    displayName: Response«List«OrgUsers»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: OrgUsers
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«Org»»:
+    displayName: Response«List«Org»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: Org
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«PrimaryAccount»»:
+    displayName: Response«List«PrimaryAccount»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: PrimaryAccount
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«PrimaryTransaction»»:
+    displayName: Response«List«PrimaryTransaction»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: PrimaryTransaction
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«Project»»:
+    displayName: Response«List«Project»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: Project
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«Recepient»»:
+    displayName: Response«List«Recepient»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: Recepient
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«SavingsAccount»»:
+    displayName: Response«List«SavingsAccount»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: SavingsAccount
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«SavingsTransaction»»:
+    displayName: Response«List«SavingsTransaction»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: SavingsTransaction
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«List«Transfers»»:
+    displayName: Response«List«Transfers»»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: array
+        items:
+          type: Transfers
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«OrgUsers»:
+    displayName: Response«OrgUsers»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: OrgUsers
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«Org»:
+    displayName: Response«Org»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: Org
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«PrimaryAccount»:
+    displayName: Response«PrimaryAccount»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: PrimaryAccount
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«PrimaryTransaction»:
+    displayName: Response«PrimaryTransaction»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: PrimaryTransaction
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«Project»:
+    displayName: Response«Project»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: Project
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«Recepient»:
+    displayName: Response«Recepient»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: Recepient
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«SavingsAccount»:
+    displayName: Response«SavingsAccount»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: SavingsAccount
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«SavingsTransaction»:
+    displayName: Response«SavingsTransaction»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: SavingsTransaction
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«Transfers»:
+    displayName: Response«Transfers»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: Transfers
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«Users»:
+    displayName: Response«Users»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: Users
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  Response«boolean»:
+    displayName: Response«boolean»
+    type: object
+    properties:
+      data:
+        required: false
+        displayName: data
+        type: boolean
+      errors:
+        required: false
+        displayName: errors
+        type: boolean
+      messages:
+        required: false
+        displayName: messages
+        type: array
+        items:
+          type: Message
+      requestId:
+        required: false
+        displayName: requestId
+        type: string
+      requestTime:
+        required: false
+        displayName: requestTime
+        type: datetime
+      totalElements:
+        required: false
+        displayName: totalElements
+        type: integer
+        format: int64
+      totalPages:
+        required: false
+        displayName: totalPages
+        type: integer
+        format: int32
+  SavingsAccount:
+    displayName: SavingsAccount
+    type: object
+    properties:
+      accountBalance:
+        required: false
+        displayName: accountBalance
+        type: number
+        format: double
+      accountNumber:
+        required: false
+        displayName: accountNumber
+        type: integer
+        format: int32
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      user:
+        required: false
+        displayName: user
+        type: NameDto
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  SavingsTransaction:
+    displayName: SavingsTransaction
+    type: object
+    properties:
+      amount:
+        required: false
+        displayName: amount
+        type: number
+        format: double
+      availableBalance:
+        required: false
+        displayName: availableBalance
+        type: number
+        format: double
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      description:
+        required: false
+        displayName: description
+        type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      status:
+        required: false
+        displayName: status
+        type: string
+      type:
+        required: false
+        displayName: type
+        type: string
+      user:
+        required: false
+        displayName: user
+        type: NameDto
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Transfers:
+    displayName: Transfers
+    type: object
+    properties:
+      confirmed:
+        required: false
+        displayName: confirmed
+        type: boolean
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      description:
+        required: false
+        displayName: description
+        type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      location:
+        required: false
+        displayName: location
+        type: string
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      transactionType:
+        required: false
+        displayName: transactionType
+        type: string
+        enum:
+        - DEPOSIT
+        - WITHDRAW
+        - CHARGE
+        - ATM
+        - ONLINE
+        - POS
+        - TRANSFER
+        - CHECK
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  UserMinimalDto:
+    displayName: UserMinimalDto
+    type: object
+    properties:
+      company:
+        required: false
+        displayName: company
+        type: string
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      email:
+        required: false
+        displayName: email
+        type: string
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      jobTitle:
+        required: false
+        displayName: jobTitle
+        type: string
+      location:
+        required: false
+        displayName: location
+        type: string
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      name:
+        required: false
+        displayName: name
+        type: string
+      username:
+        required: false
+        displayName: username
+        type: string
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+  Users:
+    displayName: Users
+    type: object
+    properties:
+      accountNonExpired:
+        required: false
+        displayName: accountNonExpired
+        type: boolean
+      accountNonLocked:
+        required: false
+        displayName: accountNonLocked
+        type: boolean
+      company:
+        required: false
+        displayName: company
+        type: string
+      createdBy:
+        required: false
+        displayName: createdBy
+        type: string
+      createdDate:
+        required: false
+        displayName: createdDate
+        type: datetime
+      credentialsNonExpired:
+        required: false
+        displayName: credentialsNonExpired
+        type: boolean
+      email:
+        required: false
+        displayName: email
+        type: string
+      enabled:
+        required: false
+        displayName: enabled
+        type: boolean
+      id:
+        required: false
+        displayName: id
+        type: string
+      inactive:
+        required: false
+        displayName: inactive
+        type: boolean
+      jobTitle:
+        required: false
+        displayName: jobTitle
+        type: string
+      location:
+        required: false
+        displayName: location
+        type: string
+      modifiedBy:
+        required: false
+        displayName: modifiedBy
+        type: string
+      modifiedDate:
+        required: false
+        displayName: modifiedDate
+        type: datetime
+      name:
+        required: false
+        displayName: name
+        type: string
+      password:
+        required: false
+        displayName: password
+        type: string
+      privileges:
+        required: false
+        displayName: privileges
+        type: array
+        items:
+          type: string
+      username:
+        required: false
+        displayName: username
+        type: string
+      version:
+        required: false
+        displayName: version
+        type: integer
+        format: int64
+/api/v1:
+  /bank-account:
+    get:
+      displayName: findAllBankAccountUsingGET
+      description: findAllBankAccount
+      queryParameters:
+        pageSize:
+          required: false
+          default: '20'
+          example:
+            value: 20
+          displayName: pageSize
+          description: pageSize
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    post:
+      displayName: addUsingPOST
+      description: add
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: BankAccount
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    put:
+      displayName: updateUsingPUT
+      description: update
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: BankAccount
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /deposit-amount:
+      put:
+        displayName: depositUsingPUT
+        description: deposit
+        body:
+          application/json:
+            displayName: request
+            description: request
+            type: BankAccount
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /withdraw-amount:
+      put:
+        displayName: withdrawUsingPUT
+        description: withdraw
+        body:
+          application/json:
+            displayName: request
+            description: request
+            type: BankAccount
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findBankAccountByIdUsingGET
+        description: findBankAccountById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      delete:
+        displayName: deleteByIdUsingDELETE
+        description: deleteById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '204':
+            description: No Content
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+  /branches:
+    get:
+      displayName: findAllBranchesUsingGET
+      description: findAllBranches
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    post:
+      displayName: addUsingPOST_1
+      description: add
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: Branch
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /update:
+      put:
+        displayName: updateUsingPUT_1
+        description: update
+        body:
+          application/json:
+            displayName: request
+            description: request
+            type: Branch
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findBranchByIdUsingGET
+        description: findBranchById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      delete:
+        displayName: deleteByIdUsingDELETE_1
+        description: deleteById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '204':
+            description: No Content
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+  /issues:
+    post:
+      displayName: addUsingPOST_2
+      description: add
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: Issue
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    put:
+      displayName: updateUsingPUT_2
+      description: update
+      body:
+        application/json:
+          displayName: dto
+          description: dto
+          type: Issue
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /product/{projectId}:
+      uriParameters:
+        projectId:
+          required: true
+          displayName: projectId
+          description: projectId
+          type: string
+      get:
+        displayName: findByProjectIdUsingGET
+        description: findByProjectId
+        queryParameters:
+          page:
+            required: false
+            default: '0'
+            example:
+              value: 0
+            displayName: page
+            description: page
+            type: integer
+            format: int32
+          pageSize:
+            required: false
+            default: '20'
+            example:
+              value: 20
+            displayName: pageSize
+            description: pageSize
+            type: integer
+            format: int32
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      /issue/{id}:
+        uriParameters:
+          id:
+            required: true
+            displayName: id
+            description: id
+            type: string
+        delete:
+          displayName: deleteUsingDELETE
+          description: delete
+          responses:
+            '200':
+              description: OK
+              body:
+                text/plain:
+                  displayName: response
+                  description: ''
+                  type: any
+            '204':
+              description: No Content
+              body: {}
+            '401':
+              description: Unauthorized
+              body: {}
+            '403':
+              description: Forbidden
+              body: {}
+    /ui:
+      post:
+        displayName: addFromUIUsingPOST
+        description: addFromUI
+        body:
+          application/json:
+            displayName: request
+            description: request
+            type: Issue
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      put:
+        displayName: updateFromUIUsingPUT
+        description: updateFromUI
+        body:
+          application/json:
+            displayName: dto
+            description: dto
+            type: Issue
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findByIdUsingGET
+        description: findById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+  /orgs:
+    get:
+      displayName: findAllUsingGET
+      description: findAll
+      queryParameters:
+        page:
+          required: false
+          default: '0'
+          example:
+            value: 0
+          displayName: page
+          description: page
+          type: integer
+          format: int32
+        pageSize:
+          required: false
+          default: '20'
+          example:
+            value: 20
+          displayName: pageSize
+          description: pageSize
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    post:
+      displayName: createUsingPOST
+      description: create
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: Org
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /allorgs:
+      get:
+        displayName: findAllOrgsUsingGET
+        description: findAllOrgs
+        queryParameters:
+          page:
+            required: false
+            default: '0'
+            example:
+              value: 0
+            displayName: page
+            description: page
+            type: integer
+            format: int32
+          pageSize:
+            required: false
+            default: '20'
+            example:
+              value: 20
+            displayName: pageSize
+            description: pageSize
+            type: integer
+            format: int32
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /by-user:
+      get:
+        displayName: findOrgUsersUsingGET
+        description: findOrgUsers
+        queryParameters:
+          page:
+            required: false
+            default: '0'
+            example:
+              value: 0
+            displayName: page
+            description: page
+            type: integer
+            format: int32
+          pageSize:
+            required: false
+            default: '20'
+            example:
+              value: 20
+            displayName: pageSize
+            description: pageSize
+            type: integer
+            format: int32
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /find-by-name/{name}:
+      uriParameters:
+        name:
+          required: true
+          displayName: name
+          description: name
+          type: string
+      get:
+        displayName: findByNameUsingGET
+        description: findByName
+        queryParameters:
+          page:
+            required: false
+            default: '0'
+            example:
+              value: 0
+            displayName: page
+            description: page
+            type: integer
+            format: int32
+          pageSize:
+            required: false
+            default: '20'
+            example:
+              value: 20
+            displayName: pageSize
+            description: pageSize
+            type: integer
+            format: int32
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /login-status:
+      get:
+        displayName: loginUsingGET
+        description: login
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /search:
+      get:
+        displayName: searchUsingGET
+        description: search
+        queryParameters:
+          keyword:
+            required: false
+            displayName: keyword
+            description: keyword
+            type: string
+          page:
+            required: false
+            default: '0'
+            example:
+              value: 0
+            displayName: page
+            description: page
+            type: integer
+            format: int32
+          pageSize:
+            required: false
+            default: '20'
+            example:
+              value: 20
+            displayName: pageSize
+            description: pageSize
+            type: integer
+            format: int32
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findByIdUsingGET_1
+        description: findById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      put:
+        displayName: updateUsingPUT_3
+        description: update
+        body:
+          application/json:
+            displayName: dto
+            description: dto
+            type: Org
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      delete:
+        displayName: deleteUsingDELETE_1
+        description: delete
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '204':
+            description: No Content
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+      /users:
+        get:
+          displayName: findOrgUsersByIdUsingGET
+          description: findOrgUsersById
+          queryParameters:
+            page:
+              required: false
+              default: '0'
+              example:
+                value: 0
+              displayName: page
+              description: page
+              type: integer
+              format: int32
+            pageSize:
+              required: false
+              default: '20'
+              example:
+                value: 20
+              displayName: pageSize
+              description: pageSize
+              type: integer
+              format: int32
+          responses:
+            '200':
+              description: OK
+              body:
+                text/plain:
+                  displayName: response
+                  description: ''
+                  type: any
+            '401':
+              description: Unauthorized
+              body: {}
+            '403':
+              description: Forbidden
+              body: {}
+            '404':
+              description: Not Found
+              body: {}
+    /{branchId}:
+      uriParameters:
+        branchId:
+          required: true
+          displayName: branchId
+          description: branchId
+          type: string
+      /branch-user/{orgUserId}:
+        uriParameters:
+          orgUserId:
+            required: true
+            displayName: orgUserId
+            description: orgUserId
+            type: string
+        get:
+          displayName: findOrgUserByIdUsingGET
+          description: findOrgUserById
+          responses:
+            '200':
+              description: OK
+              body:
+                text/plain:
+                  displayName: response
+                  description: ''
+                  type: any
+            '401':
+              description: Unauthorized
+              body: {}
+            '403':
+              description: Forbidden
+              body: {}
+            '404':
+              description: Not Found
+              body: {}
+      /users:
+        /add-member:
+          post:
+            displayName: findOrgUsersByIdUsingPOST
+            description: findOrgUsersById
+            body:
+              application/json:
+                displayName: member
+                description: member
+                type: Member
+            headers:
+              Content-Type:
+                required: true
+                example:
+                  value: application/json
+                displayName: Content-Type
+                type: string
+                enum:
+                - application/json
+            responses:
+              '200':
+                description: OK
+                body:
+                  text/plain:
+                    displayName: response
+                    description: ''
+                    type: any
+              '201':
+                description: Created
+                body: {}
+              '401':
+                description: Unauthorized
+                body: {}
+              '403':
+                description: Forbidden
+                body: {}
+              '404':
+                description: Not Found
+                body: {}
+        /{userId}:
+          uriParameters:
+            userId:
+              required: true
+              displayName: userId
+              description: userId
+              type: string
+          put:
+            displayName: updateOrgUserUsingPUT
+            description: updateOrgUser
+            body:
+              application/json:
+                displayName: request
+                description: request
+                type: OrgUsers
+            headers:
+              Content-Type:
+                required: true
+                example:
+                  value: application/json
+                displayName: Content-Type
+                type: string
+                enum:
+                - application/json
+            responses:
+              '200':
+                description: OK
+                body:
+                  text/plain:
+                    displayName: response
+                    description: ''
+                    type: any
+              '201':
+                description: Created
+                body: {}
+              '401':
+                description: Unauthorized
+                body: {}
+              '403':
+                description: Forbidden
+                body: {}
+              '404':
+                description: Not Found
+                body: {}
+          /reset-password:
+            post:
+              displayName: resetPasswordUsingPOST
+              description: resetPassword
+              body:
+                application/json:
+                  displayName: member
+                  description: member
+                  type: Member
+              headers:
+                Content-Type:
+                  required: true
+                  example:
+                    value: application/json
+                  displayName: Content-Type
+                  type: string
+                  enum:
+                  - application/json
+              responses:
+                '200':
+                  description: OK
+                  body:
+                    text/plain:
+                      displayName: response
+                      description: ''
+                      type: any
+                '201':
+                  description: Created
+                  body: {}
+                '401':
+                  description: Unauthorized
+                  body: {}
+                '403':
+                  description: Forbidden
+                  body: {}
+                '404':
+                  description: Not Found
+                  body: {}
+  /primary-transaction:
+    get:
+      displayName: findAllPrimaryTransactionUsingGET
+      description: findAllPrimaryTransaction
+      queryParameters:
+        pageSize:
+          required: false
+          default: '20'
+          example:
+            value: 20
+          displayName: pageSize
+          description: pageSize
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    post:
+      displayName: addUsingPOST_4
+      description: add
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: PrimaryTransaction
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    put:
+      displayName: updateUsingPUT_5
+      description: update
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: PrimaryTransaction
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findPrimaryTransactionByIdUsingGET
+        description: findPrimaryTransactionById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      delete:
+        displayName: deleteByIdUsingDELETE_3
+        description: deleteById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '204':
+            description: No Content
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+  /products:
+    get:
+      displayName: findAllUsingGET_1
+      description: findAll
+      queryParameters:
+        page:
+          required: false
+          default: '0'
+          example:
+            value: 0
+          displayName: page
+          description: page
+          type: integer
+          format: int32
+        pageSize:
+          required: false
+          default: '20'
+          example:
+            value: 20
+          displayName: pageSize
+          description: pageSize
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    post:
+      displayName: addUsingPOST_5
+      description: add
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: Project
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    put:
+      displayName: updateUsingPUT_6
+      description: update
+      body:
+        application/json:
+          displayName: dto
+          description: dto
+          type: Project
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findByIdUsingGET_2
+        description: findById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      delete:
+        displayName: deleteUsingDELETE_2
+        description: delete
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '204':
+            description: No Content
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+  /recepient:
+    get:
+      displayName: findAllRecepientsUsingGET
+      description: findAllRecepients
+      queryParameters:
+        pageSize:
+          required: false
+          default: '20'
+          example:
+            value: 20
+          displayName: pageSize
+          description: pageSize
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    post:
+      displayName: addRecepientUsingPOST
+      description: addRecepient
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: Recepient
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    put:
+      displayName: updateUsingPUT_7
+      description: update
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: Recepient
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findRecepientByIdUsingGET
+        description: findRecepientById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      delete:
+        displayName: deleteByIdUsingDELETE_4
+        description: deleteById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '204':
+            description: No Content
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+  /savings-account/savings-account:
+    get:
+      displayName: findAllSavingsAccountUsingGET
+      description: findAllSavingsAccount
+      queryParameters:
+        pageSize:
+          required: false
+          default: '20'
+          example:
+            value: 20
+          displayName: pageSize
+          description: pageSize
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    post:
+      displayName: addUsingPOST_6
+      description: add
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: SavingsAccount
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    put:
+      displayName: updateUsingPUT_8
+      description: update
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: SavingsAccount
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findSavingsAccountByIdUsingGET
+        description: findSavingsAccountById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      delete:
+        displayName: deleteByIdUsingDELETE_5
+        description: deleteById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '204':
+            description: No Content
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+  /savings-transaction:
+    get:
+      displayName: findAllSavingsTransactionUsingGET
+      description: findAllSavingsTransaction
+      queryParameters:
+        pageSize:
+          required: false
+          default: '20'
+          example:
+            value: 20
+          displayName: pageSize
+          description: pageSize
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    post:
+      displayName: addUsingPOST_7
+      description: add
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: SavingsTransaction
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    put:
+      displayName: updateUsingPUT_9
+      description: update
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: SavingsTransaction
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findSavingsTransactionByIdUsingGET
+        description: findSavingsTransactionById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      delete:
+        displayName: deleteByIdUsingDELETE_6
+        description: deleteById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '204':
+            description: No Content
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+  /transfers:
+    get:
+      displayName: findAllTransfersUsingGET
+      description: findAllTransfers
+      queryParameters:
+        pageSize:
+          required: false
+          default: '20'
+          example:
+            value: 20
+          displayName: pageSize
+          description: pageSize
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    post:
+      displayName: addUsingPOST_8
+      description: add
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: Transfers
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    put:
+      displayName: updateUsingPUT_10
+      description: update
+      body:
+        application/json:
+          displayName: request
+          description: request
+          type: Transfers
+      headers:
+        Content-Type:
+          required: true
+          example:
+            value: application/json
+          displayName: Content-Type
+          type: string
+          enum:
+          - application/json
+      responses:
+        '200':
+          description: OK
+          body:
+            text/plain:
+              displayName: response
+              description: ''
+              type: any
+        '201':
+          description: Created
+          body: {}
+        '401':
+          description: Unauthorized
+          body: {}
+        '403':
+          description: Forbidden
+          body: {}
+        '404':
+          description: Not Found
+          body: {}
+    /{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      get:
+        displayName: findTransfersByIdUsingGET
+        description: findTransfersById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      delete:
+        displayName: deleteByIdUsingDELETE_7
+        description: deleteById
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '204':
+            description: No Content
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+  /primary-account:
+    /deposit-amount/{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      put:
+        displayName: depositUsingPUT_1
+        description: deposit
+        body:
+          application/json:
+            displayName: request
+            description: request
+            type: PrimaryAccount
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /primary-account:
+      get:
+        displayName: findAllPrimaryAccountUsingGET
+        description: findAllPrimaryAccount
+        queryParameters:
+          pageSize:
+            required: false
+            default: '20'
+            example:
+              value: 20
+            displayName: pageSize
+            description: pageSize
+            type: integer
+            format: int32
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      post:
+        displayName: addUsingPOST_3
+        description: add
+        body:
+          application/json:
+            displayName: request
+            description: request
+            type: PrimaryAccount
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      put:
+        displayName: updateUsingPUT_4
+        description: update
+        body:
+          application/json:
+            displayName: request
+            description: request
+            type: PrimaryAccount
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+      /{id}:
+        uriParameters:
+          id:
+            required: true
+            displayName: id
+            description: id
+            type: string
+        get:
+          displayName: findPrimaryAccountByIdUsingGET
+          description: findPrimaryAccountById
+          responses:
+            '200':
+              description: OK
+              body:
+                text/plain:
+                  displayName: response
+                  description: ''
+                  type: any
+            '401':
+              description: Unauthorized
+              body: {}
+            '403':
+              description: Forbidden
+              body: {}
+            '404':
+              description: Not Found
+              body: {}
+        delete:
+          displayName: deleteByIdUsingDELETE_2
+          description: deleteById
+          responses:
+            '200':
+              description: OK
+              body:
+                text/plain:
+                  displayName: response
+                  description: ''
+                  type: any
+            '204':
+              description: No Content
+              body: {}
+            '401':
+              description: Unauthorized
+              body: {}
+            '403':
+              description: Forbidden
+              body: {}
+    /withdraw-amount/{id}:
+      uriParameters:
+        id:
+          required: true
+          displayName: id
+          description: id
+          type: string
+      put:
+        displayName: withdrawUsingPUT_1
+        description: withdraw
+        body:
+          application/json:
+            displayName: request
+            description: request
+            type: PrimaryAccount
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+  /users:
+    /enterprise-sign-up:
+      post:
+        displayName: enterpriseSignUpUsingPOST
+        description: enterpriseSignUp
+        body:
+          application/json:
+            displayName: users
+            description: users
+            type: Users
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /personal-sign-up:
+      post:
+        displayName: personalSignUpUsingPOST
+        description: personalSignUp
+        body:
+          application/json:
+            displayName: users
+            description: users
+            type: Users
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /status:
+      get:
+        displayName: loginUsingGET_1
+        description: login
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
+    /team-sign-up:
+      post:
+        displayName: teamSignUpUsingPOST
+        description: teamSignUp
+        body:
+          application/json:
+            displayName: users
+            description: users
+            type: Users
+        headers:
+          Content-Type:
+            required: true
+            example:
+              value: application/json
+            displayName: Content-Type
+            type: string
+            enum:
+            - application/json
+        responses:
+          '200':
+            description: OK
+            body:
+              text/plain:
+                displayName: response
+                description: ''
+                type: any
+          '201':
+            description: Created
+            body: {}
+          '401':
+            description: Unauthorized
+            body: {}
+          '403':
+            description: Forbidden
+            body: {}
+          '404':
+            description: Not Found
+            body: {}
